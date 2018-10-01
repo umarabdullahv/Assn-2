@@ -228,7 +228,63 @@ namespace Assignment_2
         //return type  : NA
         public void SortByValue()
         {
-            // write your implementation here
+            {
+                StockNode cur = head;
+                int i = 0;
+                List<Stock> st = new List<Stock>();
+                LinkedList<Stock> st1 = new LinkedList<Stock>();
+                while (cur != null)
+                {
+
+                    st.Add(cur.StockHolding);
+
+                    cur = cur.Next;
+                }
+                foreach (Stock sp in st)
+                {
+                    if (i == 0)
+                    {
+                        i = i + 1;
+                        st1.AddFirst(sp);
+                        continue;
+                    }
+                    else
+                    {
+                        int k = 0;
+                        foreach (Stock sk1 in st1)
+                        {
+                            if (sp.Holdings < sk1.Holdings)
+                            {
+                                k = k + 1;
+                                if (st1.Count == k)
+                                {
+                                    st1.AddBefore(st1.Find(sk1), sp);
+
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                k = k + 1;
+                                if (st1.Count == k)
+                                {
+
+                                    st1.AddAfter(st1.Find(sk1), sp);
+                                    break;
+                                }
+                            }
+
+                        }
+
+                    }
+
+                }
+                foreach (var sp in st1)
+                {
+                    Console.WriteLine(sp);
+                }
+
+            }
 
         }
 
@@ -243,7 +299,6 @@ namespace Assignment_2
             StockList resultList = new StockList();
             resultList.AddStock(current.StockHolding);
             current = current.Next;
-            List<string> resNames;
 
             while (current != null)
             {
@@ -251,7 +306,7 @@ namespace Assignment_2
                 {
                     resultList.AddFirst(current.StockHolding);
                 }
-                else //if(current.StockHolding.Name.CompareTo(resultList.head.StockHolding.Name) > 1)
+                else
                 {
                     resultList.AddLast(current.StockHolding);
                 }
