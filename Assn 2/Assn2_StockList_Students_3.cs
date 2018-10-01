@@ -58,9 +58,6 @@ namespace Assignment_2
                 current2 = listToCompare.head;
                 current = current.Next;
             }
-
-            // write your implementation here
-
             return similarityIndex;
         }
 
@@ -70,7 +67,6 @@ namespace Assignment_2
         //return type  : NA
         public void Print()
         {
-            // write your implementation here
             StockNode current = head;
             while (current != null)
             {
