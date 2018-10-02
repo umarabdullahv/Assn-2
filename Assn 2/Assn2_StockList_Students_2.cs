@@ -56,7 +56,7 @@ namespace Assignment_2
         public int Length()
         {
             int length = 0;
-
+            int variable1 = 0;
             // write your implementation here
 
             StockNode current = head;

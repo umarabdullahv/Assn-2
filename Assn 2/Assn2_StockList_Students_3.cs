@@ -15,6 +15,9 @@ namespace Assignment_2
             decimal value = 0.0m;
             StockNode current = head;
 
+            //Value of each share = (current price * number of holdings). 
+            //Adding this value in the decimal variable 'value' to 
+            //find portfolio value.
             while (current != null)
             {
                 value = value + (current.StockHolding.CurrentPrice) * (current.StockHolding.Holdings);
@@ -34,20 +37,30 @@ namespace Assignment_2
             StockNode current = this.head;
             StockNode current2 = listToCompare.head;
 
+            //With two Do-while loops comparing 1st node of List1 with all the nodes of List2, 
+            //and then comparing 2nd node of List1 with all the nodes of List2 
+            //and this goes on until head = null
             while (current != null)
             {
                 while (current2 != null)
                 {
+
                     if (current.StockHolding.Symbol == current2.StockHolding.Symbol)
                     {
+                        //similarity found and checking if that is the last node in the list then adding 1 to it
                         if (current.Next == null || current2.Next == null)
                         {
                             similarityIndex = similarityIndex + 1;
                         }
+                        //similarity found and checking if the same stock is present in the same lists,
+                        //i.e. if Client 1 or Client 2 has two or more GOOG in their portfolio then for each person 
+                        //it will be counted once and will eliminate the first GOOG keeping only the last GOOG.
                         else if (current.StockHolding.Symbol == current.Next.StockHolding.Symbol || current2.StockHolding.Symbol == current2.Next.StockHolding.Symbol)
                         {
                             similarityIndex = similarityIndex + 0;
                         }
+                        //similarity found and there is no two common stock in each client's 
+                        //portfolio then add 1 to the similarity index
                         else
                         {
                             similarityIndex = similarityIndex + 1;
@@ -70,6 +83,7 @@ namespace Assignment_2
             StockNode current = head;
             while (current != null)
             {
+                //Using loop reading data from the head of the list towards the tail 
                 Console.WriteLine(current.StockHolding);
                 current = current.Next;
             }
