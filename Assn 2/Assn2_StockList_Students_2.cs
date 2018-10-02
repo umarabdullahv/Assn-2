@@ -12,9 +12,11 @@ namespace Assignment_2
         //return type  : StockList
         public StockList MergeList(StockList listToMerge)
         {
+            //merging the list
+            
             StockList resultList = new StockList();
             StockNode currentM = listToMerge.head;
-
+            //there are 2 lists here
             resultList.head = head;
             StockNode current = head;
 
