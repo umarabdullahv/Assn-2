@@ -222,18 +222,15 @@ namespace Assignment_2
 
         // FOR STUDENTS
 
-        //param        : NA
-        //summary      : Sort the list by descending number of holdings
-        //return       : NA
-        //return type  : NA
+        // method to sort the number of holdings by descending order
         public void SortByValue()
         {
-                StockNode temp = head, t;
-                int i = 0, j = 0, l = Length();
-                for (i = 0; i < l;i++) {
+                StockNode temp = head, t; 
+            int i = 0, j = 0, l = Length();  
+                for (i = 0; i < l;i++) {    
                     temp = head;
-                    for (j = 0; j < l && temp.Next != null; j++)
-                    {
+                    for (j = 0; j < l && temp.Next != null; j++) 
+                {
                         if (temp.StockHolding.Holdings < temp.Next.StockHolding.Holdings)
                         {
                             t = temp.Next;
@@ -247,11 +244,7 @@ namespace Assignment_2
                     }
                 }
         }
-
-        //param        : NA
-        //summary      : Sort the list alphabatically
-        //return       : NA
-        //return type  : NA
+        //method for sorting by alphabetical order
         public void SortByName()
         {
             StockNode temp = head, t;
@@ -273,23 +266,6 @@ namespace Assignment_2
                     temp = temp.Next;
                 }
             }
-            //StockNode previous = this.head;
-            //StockList resultList = new StockList();
-            //current.AddStock(current.StockHolding);
-            //current = current.Next;
-
-            //while (current != null)
-            //{
-            //  if (current.StockHolding.Name.CompareTo(resultList.head.StockHolding.Name) < 0)
-            //{
-            //  resultList.AddFirst(current.StockHolding);
-            //}
-            //else
-            //{
-            //  resultList.AddLast(current.StockHolding);
-            //}
-
-            //               current = current.Next;
 
         }
     }
