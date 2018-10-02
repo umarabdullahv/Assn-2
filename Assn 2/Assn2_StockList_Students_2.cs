@@ -13,20 +13,22 @@ namespace Assignment_2
         public StockList MergeList(StockList listToMerge)
         {
             StockList resultList = new StockList();
-            StockNode current = listToMerge.head;
+            StockNode currentM = listToMerge.head;
 
             resultList.head = head;
-            StockNode currentR = head;
+            StockNode current = head;
 
             while (current != null)
             {
-                resultList.AddStock(current.StockHolding);
+                while (currentM != null)
+                {
+                    resultList.AddStock(currentM.StockHolding);
+                    currentM = currentM.Next;
+                }
                 current = current.Next;
             }
-
             return resultList;
         }
-
         //param        : NA
         //summary      : finds the stock with most number of holdings
         //return       : stock with most shares
@@ -56,7 +58,7 @@ namespace Assignment_2
         public int Length()
         {
             int length = 0;
-            int variable1 = 0;
+           
             // write your implementation here
 
             StockNode current = head;
