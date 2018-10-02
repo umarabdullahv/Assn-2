@@ -17,9 +17,11 @@ namespace Assignment_2
             StockList resultList = new StockList();
             StockNode currentM = listToMerge.head;
             //there are 2 lists here
+            //entering all the contents of client1 in resultlist
             resultList.head = head;
             StockNode current = head;
-
+            
+            //using adstock function to enlist all the items from listtomerge i.e client2 to resultlist
             while (current != null)
             {
                 while (currentM != null)
