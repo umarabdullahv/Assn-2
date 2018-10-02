@@ -228,64 +228,24 @@ namespace Assignment_2
         //return type  : NA
         public void SortByValue()
         {
-            {
-                StockNode cur = head;
-                int i = 0;
-                List<Stock> st = new List<Stock>();
-                LinkedList<Stock> st1 = new LinkedList<Stock>();
-                while (cur != null)
-                {
-
-                    st.Add(cur.StockHolding);
-
-                    cur = cur.Next;
-                }
-                foreach (Stock sp in st)
-                {
-                    if (i == 0)
+                StockNode temp = head, t;
+                int i = 0, j = 0, l = Length();
+                for (i = 0; i < l;i++) {
+                    temp = head;
+                    for (j = 0; j < l && temp.Next != null; j++)
                     {
-                        i = i + 1;
-                        st1.AddFirst(sp);
-                        continue;
-                    }
-                    else
-                    {
-                        int k = 0;
-                        foreach (Stock sk1 in st1)
+                        if (temp.StockHolding.Holdings < temp.Next.StockHolding.Holdings)
                         {
-                            if (sp.Holdings < sk1.Holdings)
+                            t = temp.Next;
+                            temp = Swap(temp.StockHolding);
+                            if (j == 0)
                             {
-                                k = k + 1;
-                                if (st1.Count == k)
-                                {
-                                    st1.AddBefore(st1.Find(sk1), sp);
-
-                                    break;
-                                }
+                                head = t;
                             }
-                            else
-                            {
-                                k = k + 1;
-                                if (st1.Count == k)
-                                {
-
-                                    st1.AddAfter(st1.Find(sk1), sp);
-                                    break;
-                                }
-                            }
-
                         }
-
+                        temp = temp.Next;
                     }
-
                 }
-                foreach (var sp in st1)
-                {
-                    Console.WriteLine(sp);
-                }
-
-            }
-
         }
 
         //param        : NA
@@ -294,25 +254,43 @@ namespace Assignment_2
         //return type  : NA
         public void SortByName()
         {
-            StockNode current = this.head;
-            StockNode previous = this.head;
-            StockList resultList = new StockList();
-            resultList.AddStock(current.StockHolding);
-            current = current.Next;
-
-            while (current != null)
+            StockNode temp = head, t;
+            int i = 0, j = 0, l = Length();
+            for (i = 0; i < l; i++)
             {
-                if (current.StockHolding.Name.CompareTo(resultList.head.StockHolding.Name) < 0)
+                temp = head;
+                for (j = 0; j < l && temp.Next != null; j++)
                 {
-                    resultList.AddFirst(current.StockHolding);
+                    if (temp.StockHolding.Name.CompareTo(temp.Next.StockHolding.Name) > 0)
+                    {
+                        t = temp.Next;
+                        temp = Swap(temp.StockHolding);
+                        if (j == 0)
+                        {
+                            head = t;
+                        }
+                    }
+                    temp = temp.Next;
                 }
-                else
-                {
-                    resultList.AddLast(current.StockHolding);
-                }
-
-                current = current.Next;
             }
+            //StockNode previous = this.head;
+            //StockList resultList = new StockList();
+            //current.AddStock(current.StockHolding);
+            //current = current.Next;
+
+            //while (current != null)
+            //{
+            //  if (current.StockHolding.Name.CompareTo(resultList.head.StockHolding.Name) < 0)
+            //{
+            //  resultList.AddFirst(current.StockHolding);
+            //}
+            //else
+            //{
+            //  resultList.AddLast(current.StockHolding);
+            //}
+
+            //               current = current.Next;
+
         }
     }
 }
