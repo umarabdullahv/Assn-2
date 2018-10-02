@@ -25,11 +25,30 @@ namespace Assignment_2
     //return type  : Stock
     public Stock MostShares()
     {
-      Stock mostShareStock = null;
+            Stock mostShareStock = null;
+            StockNode current = head;
+            mostShareStock = current.StockHolding;
 
-      // write your implementation here
+            while (current != null)
+            {
+                if(current.StockHolding.Holdings > mostShareStock.Holdings)
+                {
+                    mostShareStock.Holdings = current.StockHolding.Holdings;
+                    mostShareStock.Name = current.StockHolding.Name;
+                    mostShareStock.Symbol = current.StockHolding.Symbol;
+                    mostShareStock.CurrentPrice = current.StockHolding.CurrentPrice;
+                }
+                else
+                {
+                    mostShareStock.Holdings = mostShareStock.Holdings;
+                    mostShareStock.Name = mostShareStock.Name;
+                    mostShareStock.Symbol = mostShareStock.Symbol;
+                    mostShareStock.CurrentPrice = mostShareStock.CurrentPrice;
+                }
+                current = current.Next;
+            }
 
-      return mostShareStock;
+            return mostShareStock;
     }
 
     //param        : NA
@@ -40,7 +59,15 @@ namespace Assignment_2
     {
       int length = 0;
 
-      // write your implementation here
+            // write your implementation here
+
+            StockNode current = head;
+
+            while (current != null)
+            {
+                length = length + 1;
+                current = current.Next;
+            }
 
       return length;
     }
