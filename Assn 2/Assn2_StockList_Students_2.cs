@@ -12,25 +12,21 @@ namespace Assignment_2
         //return type  : StockList
         public StockList MergeList(StockList listToMerge)
         {
-            //merging the list
-            
             StockList resultList = new StockList();
-            StockNode currentM = listToMerge.head;
-            //there are 2 lists here
-            //entering all the contents of client1 in resultlist
-            resultList.head = head;
-            StockNode current = head;
+            StockNode current = listToMerge.head;
             
-            //using adstock function to enlist all the items from listtomerge i.e client2 to resultlist
             while (current != null)
             {
-                while (currentM != null)
-                {
-                    resultList.AddStock(currentM.StockHolding);
-                    currentM = currentM.Next;
-                }
+                resultList.AddStock(current.StockHolding);
                 current = current.Next;
             }
+
+            while (this.head != null)
+            {
+                resultList.AddStock(this.head.StockHolding);
+                this.head = this.head.Next;
+            }
+
             return resultList;
         }
         //param        : NA
